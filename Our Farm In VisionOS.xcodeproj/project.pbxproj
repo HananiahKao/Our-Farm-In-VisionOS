@@ -12,6 +12,12 @@
 		CB57E5AD2C4CCF8E00C6AFED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB57E5AC2C4CCF8E00C6AFED /* ContentView.swift */; };
 		CB57E5AF2C4CCF8F00C6AFED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB57E5AE2C4CCF8F00C6AFED /* Assets.xcassets */; };
 		CB57E5B22C4CCF8F00C6AFED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB57E5B12C4CCF8F00C6AFED /* Preview Assets.xcassets */; };
+		CB57E5C52C4E160B00C6AFED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB57E5B92C4E160B00C6AFED /* Preview Assets.xcassets */; };
+		CB57E5C62C4E160B00C6AFED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB57E5BB2C4E160B00C6AFED /* Assets.xcassets */; };
+		CB57E5C72C4E160B00C6AFED /* BuidingTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB57E5BC2C4E160B00C6AFED /* BuidingTarget.swift */; };
+		CB57E5CA2C4E160B00C6AFED /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB57E5BF2C4E160B00C6AFED /* DetailView.swift */; };
+		CB57E5CC2C4E160B00C6AFED /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB57E5C22C4E160B00C6AFED /* Places.swift */; };
+		CB57E5CD2C4E160B00C6AFED /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB57E5C32C4E160B00C6AFED /* ZoomableScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		CB57E5AE2C4CCF8F00C6AFED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB57E5B12C4CCF8F00C6AFED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB57E5B32C4CCF8F00C6AFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB57E5B92C4E160B00C6AFED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CB57E5BB2C4E160B00C6AFED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB57E5BC2C4E160B00C6AFED /* BuidingTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuidingTarget.swift; sourceTree = "<group>"; };
+		CB57E5BF2C4E160B00C6AFED /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		CB57E5C22C4E160B00C6AFED /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		CB57E5C32C4E160B00C6AFED /* ZoomableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			children = (
 				CB57E5AA2C4CCF8E00C6AFED /* Our_Farm_In_VisionOSApp.swift */,
 				CB57E5AC2C4CCF8E00C6AFED /* ContentView.swift */,
+				CB57E5C42C4E160B00C6AFED /* Our Farm 2 */,
 				CB57E5AE2C4CCF8F00C6AFED /* Assets.xcassets */,
 				CB57E5B32C4CCF8F00C6AFED /* Info.plist */,
 				CB57E5B02C4CCF8F00C6AFED /* Preview Content */,
@@ -79,6 +92,28 @@
 				CB57E5B12C4CCF8F00C6AFED /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CB57E5BA2C4E160B00C6AFED /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CB57E5B92C4E160B00C6AFED /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CB57E5C42C4E160B00C6AFED /* Our Farm 2 */ = {
+			isa = PBXGroup;
+			children = (
+				CB57E5BA2C4E160B00C6AFED /* Preview Content */,
+				CB57E5BB2C4E160B00C6AFED /* Assets.xcassets */,
+				CB57E5BC2C4E160B00C6AFED /* BuidingTarget.swift */,
+				CB57E5BF2C4E160B00C6AFED /* DetailView.swift */,
+				CB57E5C22C4E160B00C6AFED /* Places.swift */,
+				CB57E5C32C4E160B00C6AFED /* ZoomableScrollView.swift */,
+			);
+			name = "Our Farm 2";
+			path = "../../Our Farm 2/Our Farm 2";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +178,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB57E5B22C4CCF8F00C6AFED /* Preview Assets.xcassets in Resources */,
+				CB57E5C52C4E160B00C6AFED /* Preview Assets.xcassets in Resources */,
+				CB57E5C62C4E160B00C6AFED /* Assets.xcassets in Resources */,
 				CB57E5AF2C4CCF8F00C6AFED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,8 +191,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB57E5C72C4E160B00C6AFED /* BuidingTarget.swift in Sources */,
+				CB57E5CA2C4E160B00C6AFED /* DetailView.swift in Sources */,
 				CB57E5AD2C4CCF8E00C6AFED /* ContentView.swift in Sources */,
+				CB57E5CD2C4E160B00C6AFED /* ZoomableScrollView.swift in Sources */,
 				CB57E5AB2C4CCF8E00C6AFED /* Our_Farm_In_VisionOSApp.swift in Sources */,
+				CB57E5CC2C4E160B00C6AFED /* Places.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +333,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Our Farm";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,6 +359,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Our Farm";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
