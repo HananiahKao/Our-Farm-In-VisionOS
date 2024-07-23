@@ -1,5 +1,8 @@
 #usda 1.0
 (
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 1.0 (409.100.15)"
+    }
     defaultPrim = "Root"
     metersPerUnit = 1
     upAxis = "Y"
@@ -7,69 +10,51 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["GridMaterial", "Sphere"]
-    rel material:binding = None (
-        bindMaterialAs = "weakerThanDescendants"
-    )
-
-    def Sphere "Sphere" (
+    reorder nameChildren = ["GridMaterial", "Cube"]
+    def Cube "Cube" (
         active = true
         prepend apiSchemas = ["MaterialBindingAPI"]
     )
     {
+        reorder nameChildren = ["DefaultMaterial", "GridMaterial"]
         rel material:binding = </Root/GridMaterial/GridMaterial> (
             bindMaterialAs = "weakerThanDescendants"
         )
-        double radius = 0.1
-        float3 xformOp:scale = (100, 100, 100)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        def RealityKitComponent "Collider"
-        {
-            uint group = 1
-            uniform token info:id = "RealityKit.Collider"
-            uint mask = 4294967295
-            token type = "Default"
-
-            def RealityKitStruct "Shape"
-            {
-                float3 extent = (0.2, 0.2, 0.2)
-                float radius = 0.1
-                token shapeType = "Sphere"
-            }
-        }
-
-        def RealityKitComponent "InputTarget"
-        {
-            uniform token info:id = "RealityKit.InputTarget"
-        }
+        double size = 0.2
     }
 
     def "GridMaterial" (
         active = true
-        prepend references = @Materials/GridMaterial.usda@
+        references = @Materials/GridMaterial.usda@
     )
     {
+        quatf xformOp:orient = (1, 0, 0, 0)
         float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         over "GridMaterial"
         {
+            token outputs:mtlx:surface.connect = </Root/GridMaterial/GridMaterial/MaterialXPreviewSurface.outputs:out>
             float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (2222, 300.5)
             float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
             int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 1381
 
             over "MaterialXPreviewSurface"
             {
+                color3f inputs:diffuseColor.connect = </Root/GridMaterial/GridMaterial/Remap.outputs:out>
                 float2 ui:nodegraph:node:size = (207.5, 307)
                 int ui:nodegraph:node:stackingOrder = 1466
             }
 
             over "Remap"
             {
+                color3f inputs:in.connect = </Root/GridMaterial/GridMaterial/Combine3.outputs:out>
                 color3f inputs:inlow = (0, 0, 0.009642701) (
                     colorSpace = "lin_srgb"
                 )
+                color3f inputs:outhigh.connect = </Root/GridMaterial/GridMaterial/BaseColor.outputs:out>
+                color3f inputs:outlow.connect = </Root/GridMaterial/GridMaterial/LineColor.outputs:out>
                 float2 ui:nodegraph:node:size = (94, 181)
                 int ui:nodegraph:node:stackingOrder = 1465
                 string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:outlow", "inputs:inlow"]
@@ -77,30 +62,39 @@ def Xform "Root"
 
             over "Fractional"
             {
+                float2 inputs:in.connect = </Root/GridMaterial/GridMaterial/Multiply.outputs:out>
                 float2 ui:nodegraph:node:size = (154.5, 109)
                 int ui:nodegraph:node:stackingOrder = 1431
             }
 
             over "Multiply"
             {
+                float2 inputs:in1.connect = </Root/GridMaterial/GridMaterial/Texcoord.outputs:out>
+                float2 inputs:in2.connect = </Root/GridMaterial/GridMaterial/LineCounts.outputs:out>
                 float2 ui:nodegraph:node:size = (60, 36)
                 int ui:nodegraph:node:stackingOrder = 1368
             }
 
             over "Combine3"
             {
+                float inputs:in1.connect = </Root/GridMaterial/GridMaterial/Min.outputs:out>
+                float inputs:in2.connect = </Root/GridMaterial/GridMaterial/Min.outputs:out>
+                float inputs:in3.connect = </Root/GridMaterial/GridMaterial/Min.outputs:out>
                 float2 ui:nodegraph:node:size = (145, 54)
                 int ui:nodegraph:node:stackingOrder = 1426
             }
 
             over "Subtract"
             {
+                float2 inputs:in1.connect = </Root/GridMaterial/GridMaterial/Fractional.outputs:out>
+                float2 inputs:in2.connect = </Root/GridMaterial/GridMaterial/LineWidths.outputs:out>
                 float2 ui:nodegraph:node:size = (61.5, 36)
                 int ui:nodegraph:node:stackingOrder = 1370
             }
 
             over "Absval"
             {
+                float2 inputs:in.connect = </Root/GridMaterial/GridMaterial/Subtract.outputs:out>
                 float2 ui:nodegraph:node:size = (121.5, 53)
                 int ui:nodegraph:node:stackingOrder = 1371
             }
@@ -141,18 +135,23 @@ def Xform "Root"
 
             over "Separate2"
             {
+                float2 inputs:in.connect = </Root/GridMaterial/GridMaterial/Range.outputs:out>
                 float2 ui:nodegraph:node:size = (115, 127)
                 int ui:nodegraph:node:stackingOrder = 1373
             }
 
             over "Min"
             {
+                float inputs:in1.connect = </Root/GridMaterial/GridMaterial/Separate2.outputs:outx>
+                float inputs:in2.connect = </Root/GridMaterial/GridMaterial/Separate2.outputs:outy>
                 float2 ui:nodegraph:node:size = (113, 40)
                 int ui:nodegraph:node:stackingOrder = 1374
             }
 
             over "Range"
             {
+                float2 inputs:in.connect = </Root/GridMaterial/GridMaterial/Absval.outputs:out>
+                float2 inputs:inhigh.connect = </Root/GridMaterial/GridMaterial/LineWidths.outputs:out>
                 float2 ui:nodegraph:node:size = (98, 217)
                 int ui:nodegraph:node:stackingOrder = 1430
                 string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:inlow", "inputs:inlow", "inputs:in", "inputs:inhigh", "inputs:gamma"]
